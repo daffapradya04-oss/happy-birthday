@@ -1,0 +1,431 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday, My Love ❤️</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Great+Vibes&family=Playfair+Display:wght@500;600;700&display=swap');
+
+:root {
+  --pink: #ff8eae;
+  --rose: #ff5c91;
+  --cream: #fff4f4;
+  --dark: #552d49;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: #fff0f5;
+  color: var(--dark);
+  overflow-x: hidden;
+}
+
+button { font-family: inherit; cursor: pointer; }
+
+/* BACKGROUND */
+.background {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background:
+    radial-gradient(circle at 15% 20%, #ffd2e2, transparent 35%),
+    radial-gradient(circle at 85% 70%, #f7c5e6, transparent 35%),
+    linear-gradient(135deg, #fff5f6, #ffe1ec, #fce8ff);
+}
+
+.sparkles span {
+  position: fixed;
+  color: white;
+  font-size: 20px;
+  animation: sparkle 3s infinite ease-in-out;
+  z-index: -1;
+}
+
+.sparkles span:nth-child(1) { top: 10%; left: 10%; }
+.sparkles span:nth-child(2) { top: 25%; right: 12%; animation-delay: 1s; }
+.sparkles span:nth-child(3) { top: 70%; left: 8%; animation-delay: 2s; }
+.sparkles span:nth-child(4) { top: 80%; right: 10%; animation-delay: .5s; }
+.sparkles span:nth-child(5) { top: 48%; left: 50%; animation-delay: 1.5s; }
+
+@keyframes sparkle {
+  0%,100% { opacity: .2; transform: scale(.7) rotate(0); }
+  50% { opacity: 1; transform: scale(1.5) rotate(30deg); }
+}
+
+/* FLOATING HEARTS */
+.hearts {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.hearts span {
+  position: absolute;
+  bottom: -50px;
+  font-size: 22px;
+  opacity: .5;
+  animation: floatUp 12s linear infinite;
+}
+
+.hearts span:nth-child(1) { left: 10%; animation-delay: 0s; }
+.hearts span:nth-child(2) { left: 25%; animation-delay: 3s; }
+.hearts span:nth-child(3) { left: 50%; animation-delay: 6s; }
+.hearts span:nth-child(4) { left: 75%; animation-delay: 2s; }
+.hearts span:nth-child(5) { left: 90%; animation-delay: 5s; }
+
+@keyframes floatUp {
+  to { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
+}
+
+/* GENERAL */
+section {
+  min-height: 100vh;
+  padding: 80px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content {
+  width: min(650px, 100%);
+  text-align: center;
+}
+
+.subtitle {
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  font-size: 11px;
+  color: #ba638a;
+  font-weight: 700;
+}
+
+.script {
+  font-family: 'Great Vibes', cursive;
+  color: var(--rose);
+  font-size: clamp(55px, 10vw, 95px);
+  line-height: 1.2;
+}
+
+h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(30px, 6vw, 45px);
+  margin: 15px 0;
+}
+
+p {
+  line-height: 1.9;
+  color: #875c76;
+}
+
+/* BUTTON */
+.btn {
+  display: inline-block;
+  border: none;
+  padding: 15px 30px;
+  margin-top: 30px;
+  border-radius: 50px;
+  background: linear-gradient(135deg, #ff8eae, #ff5592);
+  color: white;
+  font-weight: 700;
+  font-size: 14px;
+  box-shadow: 0 10px 30px #ff80a855;
+  transition: .3s;
+}
+
+.btn:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 15px 35px #ff80a888;
+}
+
+/* OPENING */
+#opening {
+  position: relative;
+}
+
+.envelope {
+  font-size: 85px;
+  margin: 25px 0;
+  display: inline-block;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%,100% { transform: translateY(0) rotate(-5deg); }
+  50% { transform: translateY(-15px) rotate(5deg); }
+}
+
+/* BIRTHDAY CARD */
+.card {
+  background: #ffffffc9;
+  backdrop-filter: blur(15px);
+  border: 1px solid #ffffff;
+  border-radius: 30px;
+  padding: 40px 30px;
+  box-shadow: 0 20px 60px #b95c8120;
+  margin-top: 30px;
+  transition: .4s;
+}
+
+.card:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 25px 70px #b95c8130;
+}
+
+.big-age {
+  font-family: 'Playfair Display', serif;
+  font-size: 95px;
+  font-weight: 700;
+  background: linear-gradient(135deg, #ff8eae, #c66ba8);
+  color: transparent;
+  background-clip: text;
+  margin: 10px;
+}
+
+/* PHOTO */
+.photo-frame {
+  width: min(300px, 100%);
+  height: 350px;
+  margin: 30px auto;
+  padding: 10px;
+  background: white;
+  border-radius: 25px;
+  box-shadow: 0 15px 40px #b95c8130;
+  transform: rotate(-3deg);
+  transition: .4s;
+}
+
+.photo-frame:hover { transform: rotate(0) scale(1.04); }
+
+.photo-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 18px;
+}
+
+.photo-placeholder {
+  height: 100%;
+  background: linear-gradient(135deg, #ffe1ec, #f5d9f5);
+  border-radius: 18px;
+  display: grid;
+  place-items: center;
+  font-size: 65px;
+}
+
+/* SECRET MESSAGE */
+.secret {
+  background: #fff9fc;
+  border: 2px dashed #f6a4c2;
+  border-radius: 25px;
+  padding: 30px;
+  margin-top: 25px;
+}
+
+#secret-message {
+  display: none;
+  margin-top: 20px;
+  animation: reveal .8s ease;
+}
+
+#secret-message:target { display: block; }
+
+@keyframes reveal {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* CSS ONLY CONFETTI */
+.confetti {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 10;
+  overflow: hidden;
+  opacity: 0;
+}
+
+.confetti span {
+  position: absolute;
+  top: -20px;
+  left: calc(var(--i) * 4%);
+  width: 9px;
+  height: 15px;
+  background: var(--c);
+  animation: fall 3s linear infinite;
+  animation-delay: calc(var(--i) * -.17s);
+}
+
+#celebrate:target ~ .confetti {
+  opacity: 1;
+}
+
+@keyframes fall {
+  to { transform: translateY(110vh) rotate(900deg); }
+}
+
+/* FOOTER */
+footer {
+  padding: 30px 15px;
+  text-align: center;
+  color: #bc7294;
+  font-size: 12px;
+}
+
+@media(max-width:480px) {
+  .card { padding: 30px 20px; }
+  section { padding: 60px 18px; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="background"></div>
+
+<div class="sparkles">
+  <span>✦</span><span>✧</span><span>✦</span>
+  <span>✧</span><span>✦</span>
+</div>
+
+<div class="hearts">
+  <span>💗</span><span>♡</span><span>💖</span>
+  <span>💕</span><span>♡</span>
+</div>
+
+<!-- OPENING -->
+<section id="opening">
+  <div class="content">
+    <div class="subtitle">A little surprise for someone special</div>
+    <div class="envelope">💌</div>
+    <div class="script">Hey, My Love!</div>
+    <h2>Someone Special Has A Birthday Today!</h2>
+    <p>
+      I have prepared something special just for you.
+      Are you ready to open it?
+    </p>
+    <a href="#birthday" class="btn">OPEN YOUR SURPRISE ✨</a>
+  </div>
+</section>
+
+<!-- BIRTHDAY -->
+<section id="birthday">
+  <div class="content">
+    <div class="subtitle">Today is all about you</div>
+    <div class="script">Happy Birthday!</div>
+    <h2>To ASAWAKO</h2>
+
+    <div class="card">
+      <div style="font-size:40px">🎂</div>
+      <h2>ALMEYA</h2>
+      <p>Another beautiful year of your life begins!</p>
+      <div class="big-age">21</div>
+      <p>Years of being wonderful ✨</p>
+    </div>
+
+    <a href="#memories" class="btn">NEXT SURPRISE →</a>
+  </div>
+</section>
+
+<!-- PHOTO MEMORY -->
+<section id="memories">
+  <div class="content">
+    <div class="subtitle">A little piece of our story</div>
+    <h2>U'RE SO MAGANDA MY LOVE</h2>
+    <p>Some moments are simply too beautiful to forget.</p>
+
+    <div class="photo-frame">
+      <!-- GANTI LINK FOTO DI BAWAH INI -->
+      <img src="almeya.jpeg" alt="Our beautiful memory">
+    </div>
+
+    <p>
+      One of my favorite things in this world
+      is having beautiful memories with you.
+    </p>
+
+    <a href="#wishes" class="btn">CONTINUE 💗</a>
+  </div>
+</section>
+
+<!-- WISHES -->
+<section id="wishes">
+  <div class="content">
+    <div class="subtitle">A prayer from my heart</div>
+    <div class="script">My Wishes For You</div>
+
+    <div class="card">
+      <div style="font-size:40px">🌷</div>
+      <h2>Dear Almeya</h2>
+
+      <p>
+        Happy birthday MYLOVE, Wish U All The BEST!
+
+        <br><br>
+
+        IM Sorry, if u disappointed u with me, i just can give u this huhu
+
+        <br><br>
+
+        May all the beautiful things you wish for
+        find their way to you.
+      </p>
+    </div>
+
+    <a href="#secret" class="btn">ONE LAST THING... 💌</a>
+  </div>
+</section>
+
+<!-- SECRET -->
+<section id="secret">
+  <div class="content">
+    <div class="subtitle">Just between us</div>
+    <div class="script">A Secret Message</div>
+
+    <div class="secret">
+      <div style="font-size:55px">💝</div>
+      <h2>There's Something I Want To Say...</h2>
+
+      <p>
+        Click the button below.
+        This little message is only for you.
+      </p>
+
+      <a href="#secret-message" class="btn">
+        OPEN MY HEART ❤️
+      </a>
+
+      <div id="secret-message">
+        <h2>I LOVE YOU! 💗</h2>
+        <p>
+          I LOVE LOVE LOVE UU MORE MORE SO MUCHHH!
+
+          <br><br>
+
+          Thank you for being part of my life.
+          Here's to more memories, laughter,
+          and beautiful days together.
+        </p>
+      </div>
+    </div>
+
+    <a href="#opening" class="btn">REPLAY OUR SURPRISE ↻</a>
+  </div>
+</section>
+
+<footer>
+  Made with all my love ❤️
+  <br>
+  Especially for you.
+</footer>
+
+</body>
+</html>
